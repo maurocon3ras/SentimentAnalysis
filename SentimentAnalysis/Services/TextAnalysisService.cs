@@ -25,7 +25,7 @@ namespace SentimentAnalysis
         #region Methods
         public static async Task<double?> GetSentiment(string text)
         {
-            var sentimentDocument = new MultiLanguageBatchInput(new List<MultiLanguageInput> { { new MultiLanguageInput(id: "1", text: text) } });
+            var sentimentDocument = new MultiLanguageBatchInput(new List<MultiLanguageInput> { { new MultiLanguageInput(language: "es", id: "1", text: text) } });
 
             var sentimentResults = await TextAnalyticsApiClient.SentimentAsync(sentimentDocument).ConfigureAwait(false);
 

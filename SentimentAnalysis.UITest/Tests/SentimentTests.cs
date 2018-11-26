@@ -16,7 +16,7 @@ namespace SentimentAnalysis.UITest
         public void SentimentPage_SubmitHappyText_ResultShouldBeHappyFaceEmoji()
         {
             //Arrange
-            const string happyText = "Happy";
+            const string happyText = "Estoy feliz de participar en la .NET Conf CL v2018";
 
             //Act
             SentimentPage.EnterText(happyText);
@@ -31,7 +31,7 @@ namespace SentimentAnalysis.UITest
         public void SentimentPage_SubmitSadText_ResultShouldBeSadFaceEmoji()
         {
             //Arrange
-            const string sadText = "Sad";
+            const string sadText = "Triste";
 
             //Act
             SentimentPage.EnterText(sadText);
@@ -46,7 +46,7 @@ namespace SentimentAnalysis.UITest
         public void SentimentPage_SubmitNeutralText_ResultShouldBeNeutralFaceEmoji()
         {
             //Arrange
-            const string neutralText = "Mitigations in Seattle";
+            const string neutralText = "Disturbios en la Araucanía";
 
             //Act
             SentimentPage.EnterText(neutralText);

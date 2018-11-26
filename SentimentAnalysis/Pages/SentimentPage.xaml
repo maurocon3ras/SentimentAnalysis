@@ -26,14 +26,14 @@
             VerticalOptions= "Start" HorizontalOptions= "Center"/>
 
         <Entry 
-            Placeholder="Add Text here..."
+            Placeholder="Agrega texto aquí..."
             Text="{Binding UserInputEntryText}"
             ReturnType="Go"
             ReturnCommand="{Binding SubmitButtonCommand}"
             AutomationId="{x:Static sharedConstants:AutomationIdConstants.EnterTextBox}" />
 
         <sentimentAnalysis:SubmitButton
-            Text= "Submit"
+            Text= "Enviar"
             Margin= "50,10"
             FontSize= "Large"
             TextColor= "White"
@@ -55,7 +55,7 @@
         <Label
             IsVisible="{Binding IsInternetConnectionActive}"
             TextColor= "White"
-            Text= "Calculating Sentiment..."
+            Text= "Calculando Sentimiento..."
             HorizontalOptions= "Center" VerticalOptions= "Center"/>
         <Label
             FontSize="100"

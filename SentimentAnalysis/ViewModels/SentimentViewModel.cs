@@ -72,7 +72,7 @@ namespace SentimentAnalysis
                 var result = await TextAnalysisService.GetSentiment(userInputEntryText).ConfigureAwait(false);
                 if (result is null)
                 {
-                    OnSentimentAnalyisFailed("No Results Returned");
+                    OnSentimentAnalyisFailed("No encontramos resultados :(");
                 }
                 else
                 {
@@ -82,15 +82,15 @@ namespace SentimentAnalysis
             }
             catch (ErrorResponseException e) when (e.Response.StatusCode.Equals(HttpStatusCode.Unauthorized))
             {
-                OnSentimentAnalyisFailed("Invalid API Key");
+                OnSentimentAnalyisFailed("API Key inválida");
             }
             catch (Microsoft.Rest.ValidationException)
             {
-                OnSentimentAnalyisFailed("API Key Cannot Be Null");
+                OnSentimentAnalyisFailed("API Key no puede ser nula");
             }
             catch (AggregateException e) when (e.InnerExceptions.Select(x => x.Message).Any(x => x.Contains("Missing input documents")))
             {
-                OnSentimentAnalyisFailed("No Text Submitted");
+                OnSentimentAnalyisFailed("Texto no enviado");
             }
             catch (Exception e)
             {
