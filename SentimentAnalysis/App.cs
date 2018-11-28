@@ -10,7 +10,7 @@ namespace SentimentAnalysis
     {
         public App()
         {
-            Microsoft.AppCenter.AppCenter.Start("android=491b6faf-4f53-4bc9-bae9-83b0c4e5ca34;" + typeof(Analytics), typeof(Crashes));
+            Microsoft.AppCenter.AppCenter.Start(typeof(Analytics), typeof(Crashes));
             MainPage = new SentimentPage();
 
         }

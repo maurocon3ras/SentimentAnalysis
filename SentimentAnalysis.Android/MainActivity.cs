@@ -13,8 +13,8 @@ namespace SentimentAnalysis.Droid
 			ToolbarResource = Resource.Layout.Toolbar; 
 
 			base.OnCreate (savedInstanceState);
-
-			global::Xamarin.Forms.Forms.Init (this, savedInstanceState);
+            Microsoft.AppCenter.AppCenter.Start("2a162362-67d3-4f51-8f06-48695ee22242");
+            global::Xamarin.Forms.Forms.Init (this, savedInstanceState);
 			LoadApplication (new App());
 		}
 	}
