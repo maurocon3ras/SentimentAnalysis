@@ -67,7 +67,15 @@ namespace SentimentAnalysis
         #region Methods
         async Task ExecuteSubmitButtonCommand(string userInputEntryText)
         {
-            Crashes.GenerateTestCrash();
+            try
+            {
+                Crashes.GenerateTestCrash();
+            }
+            catch (Exception exception)
+            {
+                Crashes.TrackError(exception);
+            }
+
             SetIsBusy(true);
 
             try
