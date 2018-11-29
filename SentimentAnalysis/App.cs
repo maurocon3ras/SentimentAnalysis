@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SentimentAnalysis
@@ -9,10 +9,9 @@ namespace SentimentAnalysis
     public class App : Application
     {
         public App()
-        {
-            Microsoft.AppCenter.AppCenter.Start(typeof(Analytics), typeof(Crashes));
+        { 
+            AppCenter.Start("android=491b6faf-4f53-4bc9-bae9-83b0c4e5ca34;", typeof(Analytics));
             MainPage = new SentimentPage();
-
         }
 
         
