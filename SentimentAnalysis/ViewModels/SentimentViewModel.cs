@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Microsoft.AppCenter.Analytics;
 
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
@@ -13,6 +14,7 @@ using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using Xamarin.Forms;
 
 using SentimentAnalysis.Shared;
+using Microsoft.AppCenter.Crashes;
 
 namespace SentimentAnalysis
 {
@@ -65,6 +67,7 @@ namespace SentimentAnalysis
         #region Methods
         async Task ExecuteSubmitButtonCommand(string userInputEntryText)
         {
+            Crashes.GenerateTestCrash();
             SetIsBusy(true);
 
             try
@@ -78,6 +81,10 @@ namespace SentimentAnalysis
                 {
                     SetBackgroundColor((double)result);
                     SetEmoji((double)result);
+
+                    Analytics.TrackEvent("Palabra enviada", new Dictionary<string, string> {
+                                        { "Palabra", userInputEntryText }});
+
                 }
             }
             catch (ErrorResponseException e) when (e.Response.StatusCode.Equals(HttpStatusCode.Unauthorized))
